@@ -42,13 +42,27 @@ namespace Rajaraman.CSharp.Sample
             try
             {
                 sampleClass = new SampleClass();
-
                 input = 4;
                 result = sampleClass.makeSquare(1, input);
-
                 output = (MWNumericArray)result[0];
 
                 Console.WriteLine(output);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        private static void PlotParabolaGraph()
+        {
+            SampleClass sampleClass = null;
+
+            try
+            {
+                sampleClass = new SampleClass();
+                MWNumericArray input = new MWNumericArray(1, 7, new int[] {-6, -4, -2, 0, 2, 4, 6});
+                sampleClass.parabolaGraph(input);
             }
             catch (Exception e)
             {
@@ -65,6 +79,7 @@ namespace Rajaraman.CSharp.Sample
                     break;
 
                 case APP_OPTIONS.PARABOLA_GRAPH:
+                    PlotParabolaGraph();
                     break;
 
                 case APP_OPTIONS.BAR_CHART:
