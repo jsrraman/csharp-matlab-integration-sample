@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deployment-project plugin="plugin.deploytool" plugin-version="1.0">
-  <configuration target="target.net.component" target-name=".NET Assembly" name="MagicSquareML" location="D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample" file="D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\MagicSquareML.prj" preferred-package-type="package.type.exe" build-checksum="2643520646" preferred-package-location="D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample">
-    <param.project.name>D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\MagicSquareML.prj</param.project.name>
+  <configuration target="target.net.component" target-name=".NET Assembly" name="Matlab" location="D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample" file="D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\Matlab.prj" preferred-package-type="package.type.exe" build-checksum="2951717873" preferred-package-location="D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample">
+    <param.project.name>D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\Matlab.prj</param.project.name>
     <param.target.type>.NET Assembly</param.target.type>
-    <param.appname>MagicSquareML</param.appname>
-    <param.intermediate>${PROJECT_ROOT}\MagicSquareML\src</param.intermediate>
-    <param.output>${PROJECT_ROOT}\MagicSquareML\distrib</param.output>
+    <param.appname>Matlab</param.appname>
+    <param.intermediate>${PROJECT_ROOT}\Matlab\src</param.intermediate>
+    <param.output>${PROJECT_ROOT}\Matlab\distrib</param.output>
     <param.embed.ctf>true</param.embed.ctf>
     <param.tbx_on_path>
       <item>all</item>
@@ -24,8 +24,8 @@
     <param.net.tsa.enable>false</param.net.tsa.enable>
     <param.net.tsa.assembly />
     <param.net.tsa.interface />
-    <param.net.tsa.namespace>MagicSquareML</param.net.tsa.namespace>
-    <param.net.tsa.superclass />
+    <param.net.tsa.namespace>Matlab</param.net.tsa.namespace>
+    <param.net.tsa.superclass>SampleClass</param.net.tsa.superclass>
     <param.net.tsa.metadata />
     <param.net.tsa.metadata.assembly>D:\Program Files\MATLAB\R2012b\bin</param.net.tsa.metadata.assembly>
     <unset>
@@ -44,24 +44,25 @@
       <param.net.tsa.assembly />
       <param.net.tsa.interface />
       <param.net.tsa.namespace />
-      <param.net.tsa.superclass />
       <param.net.tsa.metadata />
       <param.net.tsa.metadata.assembly />
     </unset>
     <fileset.classes>
       <entity.package name="">
-        <entity.class name="MagicSquare">
-          <file>${PROJECT_ROOT}\makesquare.m</file>
+        <entity.class name="SampleClass">
+          <file>${PROJECT_ROOT}\Matlab\barChart.m</file>
+          <file>${PROJECT_ROOT}\Matlab\makeSquare.m</file>
+          <file>${PROJECT_ROOT}\Matlab\parabolaGraph.m</file>
         </entity.class>
       </entity.package>
     </fileset.classes>
     <fileset.resources />
     <fileset.package />
     <build-deliverables>
-      <file name="MagicSquareMLNative.dll" location="${PROJECT_ROOT}\MagicSquareML\distrib" optional="false">D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\MagicSquareML\distrib\MagicSquareMLNative.dll</file>
-      <file name="readme.txt" location="${PROJECT_ROOT}\MagicSquareML\distrib" optional="true">D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\MagicSquareML\distrib\readme.txt</file>
-      <file name="MagicSquareML_overview.html" location="${PROJECT_ROOT}\MagicSquareML\distrib" optional="false">D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\MagicSquareML\distrib\MagicSquareML_overview.html</file>
-      <file name="MagicSquareML.dll" location="${PROJECT_ROOT}\MagicSquareML\distrib" optional="false">D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\MagicSquareML\distrib\MagicSquareML.dll</file>
+      <file name="Matlab_overview.html" location="${PROJECT_ROOT}\Matlab\distrib" optional="false">D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\Matlab\distrib\Matlab_overview.html</file>
+      <file name="MatlabNative.dll" location="${PROJECT_ROOT}\Matlab\distrib" optional="false">D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\Matlab\distrib\MatlabNative.dll</file>
+      <file name="Matlab.dll" location="${PROJECT_ROOT}\Matlab\distrib" optional="false">D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\Matlab\distrib\Matlab.dll</file>
+      <file name="readme.txt" location="${PROJECT_ROOT}\Matlab\distrib" optional="true">D:\Users\Rajaraman\Projects\miscellaneous\csharp-matlab-integration-sample\Matlab\distrib\readme.txt</file>
     </build-deliverables>
     <workflow />
     <matlab>

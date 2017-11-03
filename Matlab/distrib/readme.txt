@@ -30,9 +30,9 @@ NOTE: You will need administrator rights to run MCRInstaller.
 
 2. Files to Deploy and Package
 
--MagicSquareML.dll
+-Matlab.dll
    -contains the generated component using MWArray API. 
--MagicSquareMLNative.dll
+-MatlabNative.dll
    -contains the generated component using native API.
 -This readme file
 
@@ -48,16 +48,14 @@ MWArray.xml - This file contains the code comments for the MWArray data conversi
               distrib directory or in
               <mcr_root>*\toolbox\dotnetbuilder\bin\win64\v2.0
 
-MagicSquareML_overview.html - HTML overview documentation file for the generated 
-                              component. It contains the requirements for accessing the 
-                              component and for generating arguments using the MWArray 
-                              class hierarchy.
+Matlab_overview.html - HTML overview documentation file for the generated component. It 
+                       contains the requirements for accessing the component and for 
+                       generating arguments using the MWArray class hierarchy.
 
-MagicSquareML.xml - This file contains the code comments for the MagicSquareML component 
-                              classes and methods. Using a third party documentation 
-                              tool, this file can be combined with either or both of the 
-                              previous files to generate online documentation for the 
-                              MagicSquareML component.
+Matlab.xml - This file contains the code comments for the Matlab component classes and 
+                       methods. Using a third party documentation tool, this file can be 
+                       combined with either or both of the previous files to generate 
+                       online documentation for the Matlab component.
 
                  
 
