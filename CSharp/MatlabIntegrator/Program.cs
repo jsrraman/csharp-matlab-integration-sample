@@ -9,22 +9,12 @@ namespace Rajaraman.CSharp.Sample
     class Program
     {
         private const string INPUT_EXIT = "n";
-        private enum APP_OPTIONS { PRINT_MAGIC_SQUARE = 1, PARABOLA_GRAPH, BAR_CHART, QUIT };
+        private enum APP_OPTIONS { MAGIC_SQUARE = 1, PARABOLA_GRAPH, BAR_CHART, QUIT };
 
         static void Main(string[] args)
         {
             ShowProgramUsageToUser();
-
-            string input = Console.ReadLine();
-
-            if (input.ToLower() == INPUT_EXIT)
-            {
-                QuitApplication();
-            }
-            else
-            {
-                ProcessUserInput();
-            }
+            ProcessUserInput();
         }
 
         private static void QuitApplication()
@@ -61,8 +51,27 @@ namespace Rajaraman.CSharp.Sample
             try
             {
                 sampleClass = new SampleClass();
-                MWNumericArray input = new MWNumericArray(1, 7, new int[] {-6, -4, -2, 0, 2, 4, 6});
-                sampleClass.parabolaGraph(input);
+                MWNumericArray xValues = new MWNumericArray(1, 7, new int[] { -6, -4, -2, 0, 2, 4, 6 });
+
+                sampleClass.parabolaGraph(xValues);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        private static void DrawBarChart()
+        {
+            SampleClass sampleClass = null;
+
+            try
+            {
+                sampleClass = new SampleClass();
+                MWNumericArray xValues = new MWNumericArray(1, 5, new int[] { 1, 2, 3, 4, 5 });
+                MWNumericArray yValues = new MWNumericArray(1, 5, new int[] { 10, 20, 30, 40, 50 });
+
+                sampleClass.barChart(xValues, yValues);
             }
             catch (Exception e)
             {
@@ -74,7 +83,7 @@ namespace Rajaraman.CSharp.Sample
         {
             switch (option)
             {
-                case APP_OPTIONS.PRINT_MAGIC_SQUARE:
+                case APP_OPTIONS.MAGIC_SQUARE:
                     PrintMagicSquare();
                     break;
 
@@ -83,6 +92,7 @@ namespace Rajaraman.CSharp.Sample
                     break;
 
                 case APP_OPTIONS.BAR_CHART:
+                    DrawBarChart();
                     break;
 
                 default:
@@ -95,8 +105,6 @@ namespace Rajaraman.CSharp.Sample
         {
             while (true)
             {
-                ShowProgramOptionsToUser();
-
                 string input = Console.ReadLine();
                 int option = 1;
 
@@ -120,20 +128,16 @@ namespace Rajaraman.CSharp.Sample
             }
         }
 
-        private static void ShowProgramOptionsToUser()
+        private static void ShowProgramUsageToUser()
         {
+            Console.WriteLine("This program demonstrates the integration with following MATLAB functions\n");
+            Console.WriteLine("Please select the option");
             Console.WriteLine("***");
             Console.WriteLine("1. Magic square");
             Console.WriteLine("2. Parabola graph");
             Console.WriteLine("3. Bar chart");
             Console.WriteLine("4. Quit");
             Console.WriteLine("***");
-        }
-
-        private static void ShowProgramUsageToUser()
-        {
-            Console.WriteLine("This program demonstrates the integration with following MATLAB functions\n");
-            Console.WriteLine("Please press 'y' to continue and 'n' to quit");
         }
     }
 }
