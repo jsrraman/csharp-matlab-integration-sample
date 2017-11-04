@@ -1,8 +1,6 @@
 ﻿using System;
-using MathWorks.MATLAB.NET.Arrays;
+
 using Matlab;
-
-
 
 namespace Rajaraman.CSharp.Sample
 {
@@ -13,7 +11,7 @@ namespace Rajaraman.CSharp.Sample
 
         static void Main(string[] args)
         {
-            ShowProgramUsageToUser();
+            ShowAppUsageToUser();
             ProcessUserInput();
         }
 
@@ -22,82 +20,32 @@ namespace Rajaraman.CSharp.Sample
             Environment.Exit(0);
         }
 
-        private static void PrintMagicSquare()
+        private static void ProcessAppOption(APP_OPTIONS appOption)
         {
-            SampleClass sampleClass = null;
-            MWNumericArray input = null;
-            MWNumericArray output = null;
-            MWArray[] result = null;
+            Option option = null;
 
-            try
-            {
-                sampleClass = new SampleClass();
-                input = 4;
-                result = sampleClass.makeSquare(1, input);
-                output = (MWNumericArray)result[0];
-
-                Console.WriteLine(output);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        private static void PlotParabolaGraph()
-        {
-            SampleClass sampleClass = null;
-
-            try
-            {
-                sampleClass = new SampleClass();
-                MWNumericArray xValues = new MWNumericArray(1, 7, new int[] { -6, -4, -2, 0, 2, 4, 6 });
-
-                sampleClass.parabolaGraph(xValues);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        private static void DrawBarChart()
-        {
-            SampleClass sampleClass = null;
-
-            try
-            {
-                sampleClass = new SampleClass();
-                MWNumericArray xValues = new MWNumericArray(1, 5, new int[] { 1, 2, 3, 4, 5 });
-                MWNumericArray yValues = new MWNumericArray(1, 5, new int[] { 10, 20, 30, 40, 50 });
-
-                sampleClass.barChart(xValues, yValues);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        private static void ProcessProgramOptions(APP_OPTIONS option)
-        {
-            switch (option)
+            switch (appOption)
             {
                 case APP_OPTIONS.MAGIC_SQUARE:
-                    PrintMagicSquare();
+                    option = new MagicSquareOption();
                     break;
 
                 case APP_OPTIONS.PARABOLA_GRAPH:
-                    PlotParabolaGraph();
+                    option = new ParabolaChartOption();
                     break;
 
                 case APP_OPTIONS.BAR_CHART:
-                    DrawBarChart();
+                    option = new BarChartOption();
                     break;
 
                 default:
                     Console.WriteLine("Not a valid option");
                     break;
+            }
+
+            if (option != null)
+            {
+                option.ExecuteOption();
             }
         }
 
@@ -118,7 +66,9 @@ namespace Rajaraman.CSharp.Sample
                     }
                     else
                     {
-                        ProcessProgramOptions(appOption);
+                        ProcessAppOption(appOption);
+                        PrintSeparator();
+                        ShowAppOptions();
                     }
                 }
                 else
@@ -128,16 +78,24 @@ namespace Rajaraman.CSharp.Sample
             }
         }
 
-        private static void ShowProgramUsageToUser()
+        private static void PrintSeparator()
+        {
+            Console.WriteLine("***\n");
+        }
+
+        private static void ShowAppUsageToUser()
         {
             Console.WriteLine("This program demonstrates the integration with following MATLAB functions\n");
-            Console.WriteLine("Please select the option");
-            Console.WriteLine("***");
+            ShowAppOptions();
+        }
+
+        private static void ShowAppOptions()
+        {
+            Console.WriteLine("Please select one of the following options\n");
             Console.WriteLine("1. Magic square");
             Console.WriteLine("2. Parabola graph");
             Console.WriteLine("3. Bar chart");
-            Console.WriteLine("4. Quit");
-            Console.WriteLine("***");
+            Console.WriteLine("4. Quit\n");
         }
     }
 }
